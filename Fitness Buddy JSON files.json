@@ -1,0 +1,1803 @@
+{
+  "name": "ActiZen - Because Your Wellness Deserves Intelligence-action",
+  "type": "action",
+  "counts": {
+    "actions": 17,
+    "intents": 14,
+    "entities": 3,
+    "data_types": 0,
+    "collections": 0,
+    "global_variables": 1
+  },
+  "status": "Available",
+  "language": "en",
+  "skill_id": "7a7f82d1-39e4-41a0-b729-0031ff3778ed",
+  "workspace": {
+    "actions": [
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "digression_failure",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't confirm if you wanted to return to previous topic, let me connect to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "digression_failure",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Failed to confirm topic return"
+                }
+              ]
+            },
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            },
+            "next_step": "step_004"
+          },
+          {
+            "step": "step_004",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_004",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Danger word detected"
+                }
+              ]
+            },
+            "next_step": "step_005"
+          },
+          {
+            "step": "step_005",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_005",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Profanity detected"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "Topic return failed",
+            "variable": "digression_failure",
+            "data_type": "any"
+          },
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems this conversation would be best managed",
+            "variable": "step_004",
+            "data_type": "any"
+          },
+          {
+            "title": "Profanity - It seems this conversation",
+            "variable": "step_005",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "run_always",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "danger_word_detected",
+            "type": "standard",
+            "title": "Connect to agent",
+            "handlers": [],
+            "resolver": {
+              "type": "fallback"
+            },
+            "variable": "danger_word_detected_variable",
+            "condition": {
+              "entity": "danger_words"
+            },
+            "next_step": "profanity_detected"
+          },
+          {
+            "step": "profanity_detected",
+            "type": "standard",
+            "title": "Show warning",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please use appropriate language when interacting with the assistant."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "max_hits",
+                "handler": "max_hits_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "max_hits": 2,
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "profanity_detected_variable",
+            "condition": {
+              "entity": "profane_words"
+            }
+          }
+        ],
+        "title": "Trigger word detected",
+        "action": "run_always",
+        "boosts": [],
+        "handlers": [],
+        "variables": [
+          {
+            "title": "Profanity detected",
+            "variable": "danger_word_detected_variable",
+            "data_type": "any"
+          },
+          {
+            "title": "Profane word detected",
+            "variable": "profanity_detected_variable",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else"
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_002_result_1",
+                "ignore_end_action_steps": false
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_708",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hello Misbah,  Welcome to ActiZen, your intelligent and mindful fitness AI companion, designed to help you take charge of your health. How may I assist you today?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_708"
+          }
+        ],
+        "title": "Hello",
+        "action": "action_1289",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_1289_intent_6161"
+        },
+        "variables": [
+          {
+            "title": "Hello Misbah, Welcome to ActiZen, your intelligent and mindful f",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_708",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_975",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You're always welcome, my dear. I'm pleased to know that you appreciated it 😊"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_975"
+          }
+        ],
+        "title": "Thank you",
+        "action": "action_15830",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_15830_intent_28044"
+        },
+        "variables": [
+          {
+            "title": "You're always welcome, my dear. I'm pleased to know that you app",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_975",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_44671",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_47425",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_735",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**\"Great! Let’s get you moving. What’s your goal today?\"**\n➡️ *Choose one:*\n\n\n  - Burn fat 🔥\n  - Build muscle 💪\n  - Improve flexibility 🧘\n  - Low impact / recovery 🛌\n  - Full-body quick session ⏱️"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_735"
+          }
+        ],
+        "title": "Home workouts",
+        "action": "action_33948",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_33948_intent_19072"
+        },
+        "variables": [
+          {
+            "title": "**\"Great! Let’s get you moving. What’s your goal today?\"** ➡️ *C",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_735",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_24766",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_805",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "#### **Burn Fat**\n**\"Here’s a fat-burning HIIT routine (No equipment, 15 min):**\n\n\n  - Jumping jacks – 1 min\n  - High knees – 1 min\n  - Mountain climbers – 1 min\n  - Rest – 30 sec\n(Repeat 3x) 🔥\n\nYou can refer to this video as well: https://youtu.be/-hSma-BRzoo?si=H7lVcqlxeG-ibXLt"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_805"
+          }
+        ],
+        "title": "Burn fat 🔥",
+        "action": "action_30013",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_30013_intent_40001"
+        },
+        "variables": [
+          {
+            "title": "#### **Burn Fat** **\"Here’s a fat-burning HIIT routine (No equip",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_805",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_33948",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_896",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "#### 💪 **Build Muscle (Bodyweight)**\n**\"Let’s go! Try this beginner strength set (20 min):**\n\n\n  - Push-ups – 10 reps\n  - Squats – 15 reps\n  - Tricep dips (use a chair) – 10 reps\n  - Plank – 30 sec\n(Repeat 3–4 rounds)\"\n\n*You can refer to this video as well: https://youtu.be/1EH_0B8Syk0?si=lb8TOaPqMrFWHzYX*"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_896"
+          }
+        ],
+        "title": "Build muscle 💪",
+        "action": "action_49268",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_49268_intent_43846"
+        },
+        "variables": [
+          {
+            "title": "#### 💪 **Build Muscle (Bodyweight)** **\"Let’s go! Try this begi",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_896",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_30013",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_612",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "#### 🧘 **Improve Flexibility**\n**\"Try this relaxing 10-min stretch flow:**\n\n\n  - Neck rolls\n  - Shoulder stretches\n  - Seated forward fold\n  - Cat-cow stretch\n  - Child’s pose\n🌸 *Ideal for mornings or before bed.\"*\n\n*You can refer to this video as well: https://youtu.be/efseyecXFWY?si=pBGNiEi58ToGP2tm*"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_612"
+          }
+        ],
+        "title": "Improve flexibility 🧘",
+        "action": "action_25555",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_25555_intent_3941"
+        },
+        "variables": [
+          {
+            "title": "#### 🧘 **Improve Flexibility** **\"Try this relaxing 10-min stre",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_612",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_49268",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_382",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "#### 🧘 1. **Gentle Full-Body Stretching (10–15 min)**\n\n  - Neck rolls & shoulder rolls\n  - Side bends and torso twists\n  - Forward fold stretch\n  - Cat-cow stretch\n  - Child’s pose\n*🌬️ Focus: Slow breathing, posture release*\n\n---\n#### 🪑 2. **Chair-Based Exercises (Great for very low energy days)**\n\n  - Seated leg raises\n  - Arm circles\n  - Seated marches\n  -"
+                          },
+                          {
+                            "scalar": " Ankle rolls\n*🪑 Suitable for beginners, seniors, or people with limited mobility*\n\n---\n#### 🚶 3. **Low-Impact Mobility Flow (Body Activation)**\n\n  - Marching in place\n  - Step-tap side to side\n  - Standing knee lifts\n  - Gentle shoulder shrugs\n*🕒 Duration: 5–10 min*\n\n---\n#### 🧘‍♂️ 4. **Recovery Yoga Flow**\n\n  - Downward dog to cobra transitions\n  - Supine twist\n  - Legs up the wall pose\n  -"
+                          },
+                          {
+                            "scalar": " Happy baby pose\n*🧘 Perfect post-workout or before bed*\n\n---\n#### 🧠 5. **Mindful Movement + Breathwork**\n\n  - 4-7-8 Breathing\n  - Box breathing (inhale-hold-exhale-hold)\n  - Gentle movements synced with breath\n*😌 Great for recovery from stress or mental fatigue*"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_382"
+          }
+        ],
+        "title": "Low impact / recovery 🛌",
+        "action": "action_6776",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_6776_intent_33714"
+        },
+        "variables": [
+          {
+            "title": "#### 🧘 1. **Gentle Full-Body Stretching (10–15 min)** - Neck ro",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_382",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_25555",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_487",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "#### ⏱️ **Full-Body Quick Session**\n**\"Got just 7 minutes? Let’s make it count!\"**\n\n\n  - Jumping jacks\n  - Wall sit\n  - Push-ups\n  - Crunches\n  - Squats\n  - Plank\n30 seconds each, no rest. Let’s go! ⏳"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_487"
+          }
+        ],
+        "title": "Full-body quick session ⏱️",
+        "action": "action_47535",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_47535_intent_45554"
+        },
+        "variables": [
+          {
+            "title": "#### ⏱️ **Full-Body Quick Session** **\"Got just 7 minutes? Let’s",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_487",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_6776",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_954",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "#### 🔁 **Daily Habit Tracker**\n> “Consistency beats intensity.”\nTrack your progress on:\n\n\n\n\n  - ✅ Daily steps\n  - ✅ Water intake\n  - ✅ Workout minutes\n  - ✅ Sleep hours\n  - ✅ Mindfulness (e.g., meditation/breathing)\n\n**Sample Command:**\n👉 *“Track today’s habits”*\n👉 *“How was my week?”*\n👉 *“Remind me to stretch every 2 hours.”*\n\n---\n#### 💬 **Daily Motivation Boost**\nStart your day with:\n\n\n  -"
+                          },
+                          {
+                            "scalar": " 🧠 Mindset quotes\n  - 💪 Workout motivation\n  - 🍀 Wellness affirmations\n  - 🚀 Small goals to crush\n\n**Examples:**\n\n\n  - *“You don't have to be extreme, just consistent.”*\n  - *“Even a 5-minute stretch is a win today.”*\n  - *“Hydration is a habit of high performers.”*\n\n---\n#### 📈 **Streak & Goal System**\n\n  - 🔥 Habit streaks (e.g., 7-day hydration goal)\n  - 🏅 Milestone rewards (e.g.,"
+                          },
+                          {
+                            "scalar": " 10k steps 5 days in a row)\n  - 📆 Weekly review summary\n  - 🎯 Monthly goals like “Meditate for 10 minutes daily” or “No sugar for 5 days”\n\n---\n#### ⏰ **Smart Reminders**\n> “ActiZen can gently nudge you, not nag you.”\n\n\n\nSet reminders like:\n\n\n  - “Remind me to stretch at 4 PM”\n  - “Ping me to journal before bed”\n  - “Water break every 90 mins”\n\n---"
+                          },
+                          {
+                            "scalar": "\n#### 📓 **Motivation Journal**\nA space where you can log:\n\n\n  - Wins of the day\n  - Struggles\n  - Gratitude notes\n  - Mindset shifts\n*(Can be voice/text-based input)*"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_954"
+          }
+        ],
+        "title": "Motivation & habit tracking 🎯",
+        "action": "action_49778",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_49778_intent_30754"
+        },
+        "variables": [
+          {
+            "title": "#### 🔁 **Daily Habit Tracker** > “Consistency beats intensity.”",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_954",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_14413",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_128",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "#### 🌿 Feeling Tired or Unwell:\n\n  1. *“I'm sorry you're not feeling your best today. Rest is just as important as action—your body knows what it needs.”*\n  2. *“Low energy days happen. Want a few quick tips to feel a bit better, or would you like to take it easy today?”*\n  3. *“Let’s listen to your body. A short stretch or breathing exercise might help ease the heaviness—shall we try?”*\n  4."
+                          },
+                          {
+                            "scalar": " *“Your wellness journey includes moments like this. I'm here for you, even if today’s about recovery.”*\n  5. *“Take a deep breath. You don’t need to push through everything. Need help planning a light self-care routine?”*\n\n#### 🔋 Feeling Low on Energy:\n\n  1. *“Let’s recharge your battery—how about a 2-minute energy reset or a quick hydration reminder?”*\n  2. *“You’ve done a lot already."
+                          },
+                          {
+                            "scalar": " A power nap, water, or a warm shower might do wonders. Want me to set a timer?”*\n  3. *“Feeling sluggish can signal stress or lack of rest. Would you like a calming audio or a short movement guide?”*\n\n#### 🧠 Mentally Exhausted / Burnt Out:\n\n  1. *“Mental fatigue is real. Let’s pause and breathe. Would you like to journal your thoughts or listen to something soothing?”*\n  2."
+                          },
+                          {
+                            "scalar": " *“You’re allowed to step back. Let’s take care of your mind today—maybe with 5 minutes of stillness.”*\n  3. *“Burnout sneaks up on even the strongest people. Let’s recalibrate—one small act of care at a time.”*\n\n#### 🧘 Gentle Nudges (If User Needs It):\n\n  1. *“Would you like a low-effort 5-minute stretch to help your body feel lighter?”*\n  2. *“I'm here to help you bounce back when you're ready."
+                          },
+                          {
+                            "scalar": " No pressure—just presence.”*\n  3. *“Want me to check in again later today with a calming reminder or a healthy snack idea?”*\n  4. *“Some days you rest, some days you rise. You're still on the path. One step, one breath at a time.”*"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_128"
+          }
+        ],
+        "title": "Unfit",
+        "action": "action_44671",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_44671_intent_30112"
+        },
+        "variables": [
+          {
+            "title": "#### 🌿 Feeling Tired or Unwell: 1. *“I'm sorry you're not feeli",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_128",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_1289",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_629",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "### 🌅 **Breakfast Ideas**\n\n  1. **Oats & Berries Bowl**\nRolled oats + almond milk + chia seeds + banana + berries.\n*(Rich in fiber, great for digestion and energy.)*\n  2. **Avocado Toast with Egg**\nWhole grain toast + smashed avocado + boiled or poached egg.\n*(Healthy fats + protein boost.)*\n  3. **Greek Yogurt Parfait**\nGreek yogurt + granola + honey + fruits.\n*(Gut-friendly and filling.)*\n\n---"
+                          },
+                          {
+                            "scalar": "\n### 🍽️ **Lunch Ideas**\n\n  1. **Grilled Paneer / Chicken Salad**\nTossed greens + cucumber + tomatoes + olive oil + grilled protein.\n*(Low-carb, high-protein.)*\n  2. **Quinoa Bowl**\nQuinoa + sautéed veggies + chickpeas + tahini or lemon dressing.\n*(Plant-based and energizing.)*\n  3. **Stuffed Whole Wheat Wraps**\nHummus or curd base + lettuce + carrots + tofu/chicken + spices."
+                          },
+                          {
+                            "scalar": "\n*(Portable and satisfying.)*\n\n---\n### 🌙 **Dinner Ideas**\n\n  1. **Stir-Fried Veggies + Brown Rice**\nBell peppers, broccoli, carrots stir-fried with garlic & soy.\n*(Easy on the stomach, nutrient-rich.)*\n  2. **Lentil Soup + Whole Wheat Toast**\nMoong dal or mixed lentils with herbs and light spices.\n*(Comforting, high-protein dinner.)*\n  3. **Zucchini Noodles or Cauliflower Rice Bowl**\nFor a low-"
+                          },
+                          {
+                            "scalar": "carb option with your favorite toppings.\n*(Light and guilt-free.)*\n\n---\n### 🍎 **Snacks / Add-ons**\n\n  - Roasted chickpeas or nuts\n  - Sliced apple with peanut butter\n  - Cucumber + mint + lemon detox water\n  - Smoothie: Banana + spinach + protein powder + almond milk"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_629"
+          }
+        ],
+        "title": "Healthy meal ideas 🥗",
+        "action": "action_14413",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_14413_intent_39889"
+        },
+        "variables": [
+          {
+            "title": "### 🌅 **Breakfast Ideas** 1. **Oats & Berries Bowl** Rolled oat",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_629",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_47535",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_165",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "## 🌿 **Mindfulness & Recovery with ActiZen**\n### 🧘‍♀️ **Guided Breathing & Meditation**\n> \"A calm mind is your strongest muscle.\"\n\n\n\n\n  - **1-min to 10-min guided sessions**\n  - Options:\n    - *Deep breathing for anxiety*\n    - *Box breathing (4-4-4-4 method)*\n    - *Body scan for tension relief*\n    - *Mindful gratitude meditation*\n\n\n\n**Sample Prompt:**\n👉 *“Start a 5-min breathing session."
+                          },
+                          {
+                            "scalar": "”*\n👉 *“Help me calm down.”*\n\n---\n### 🌙 **Sleep & Wind-down Support**\n> “Recovery starts with quality rest.”\n\n\n\n\n  - **Sleep sounds**: Rain, ocean, white noise\n  - **Bedtime stretch routine**\n  - **Night journaling prompts**\n  - **Sleep hygiene checklist**\n\n**Example Prompts:**\n👉 *“Play ocean sounds for 10 mins.”*\n👉 *“Give me a wind-down routine.”*\n\n---\n### 🛌 **Low-"
+                          },
+                          {
+                            "scalar": "Impact & Recovery Exercises**\n> “Gentle movement, deep healing.”\n\n\n\n\n  - **Yoga flows for recovery**\n  - **Mobility & stretching routines**\n  - **Foam rolling guidance**\n  - **Rest day plans that still feel productive**\n\n**Prompts You Can Use:**\n👉 *“Stretch for sore legs.”*\n👉 *“Quick yoga for back pain.”*\n\n---\n### 🧠 **Mindful Minute Challenges**\nShort, mindful tasks to ground the user:\n\n\n  -"
+                          },
+                          {
+                            "scalar": " *“Name 3 things you’re grateful for.”*\n  - *“Close your eyes and take 3 deep breaths.”*\n  - *“Step outside and take a mindful walk.”*\n\n---\n### 📓 **Mood & Energy Check-ins**\nLet users track:\n\n\n  - 🟢 Energy levels\n  - 🔵 Mood swings\n  - 🟡 Mental clarity\n\nActiZen can respond with:\n\n\n  - Gentle affirmations\n  - Personalized wellness suggestions\n  - Calming activities when feeling low"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_165"
+          }
+        ],
+        "title": "Mindfulness and recovery 🌿",
+        "action": "action_47425",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_47425_intent_14645"
+        },
+        "variables": [
+          {
+            "title": "## 🌿 **Mindfulness & Recovery with ActiZen** ### 🧘‍♀️ **Guided",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_165",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_49778",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_618",
+            "type": "standard",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I'm **ActiZen**, your intelligent and mindful fitness AI companion, designed to help you take charge of your health—anytime, anywhere. Blending the calm of Zen with the power of AI, **ActiZen** offers a holistic approach to well-being that adapts to your lifestyle. Whether you're looking to build healthy habits, stay motivated, eat smarter, or maintain a consistent workout routine,"
+                          },
+                          {
+                            "scalar": " **ActiZen** guides you every step of the way with personalized recommendations and friendly conversation ☺️\n\n**\"I'm here to support your wellness journey! I can suggest workouts, meal ideas, habit trackers, and give daily motivation. Want to explore one?\"**\n\n**\"Here’s what I can help you with:**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "- Home workouts 💪\n  - Healthy meal ideas 🥗\n  - Motivation & habit tracking 🎯\n  - Mindfulness and recovery 🌿\nJust tell me what you need!\""
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_618"
+          }
+        ],
+        "title": "What else can you do?",
+        "action": "action_24766",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_24766_intent_13689"
+        },
+        "variables": [
+          {
+            "title": "I'm **ActiZen**, your intelligent and mindful fitness AI compani",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_618",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_15830",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_25555_intent_3941",
+        "examples": [
+          {
+            "text": "Improve flexibility 🧘"
+          },
+          {
+            "text": "Improve flexibility"
+          }
+        ]
+      },
+      {
+        "intent": "action_6776_intent_33714",
+        "examples": [
+          {
+            "text": "Low impact / recovery 🛌"
+          },
+          {
+            "text": "Low impact / recovery"
+          }
+        ]
+      },
+      {
+        "intent": "action_14413_intent_39889",
+        "examples": [
+          {
+            "text": "Healthy meal ideas 🥗"
+          },
+          {
+            "text": "Healthy meal ideas"
+          }
+        ]
+      },
+      {
+        "intent": "action_49778_intent_30754",
+        "examples": [
+          {
+            "text": "Motivation & habit tracking 🎯"
+          },
+          {
+            "text": "Motivation & habit tracking"
+          }
+        ]
+      },
+      {
+        "intent": "action_30013_intent_40001",
+        "examples": [
+          {
+            "text": "Burn fat 🔥"
+          },
+          {
+            "text": "Burn fat"
+          }
+        ]
+      },
+      {
+        "intent": "action_47425_intent_14645",
+        "examples": [
+          {
+            "text": "Mindfulness and recovery"
+          },
+          {
+            "text": "Mindfulness and recovery 🌿"
+          }
+        ]
+      },
+      {
+        "intent": "action_44671_intent_30112",
+        "examples": [
+          {
+            "text": "I am unfit"
+          },
+          {
+            "text": "I am unwell"
+          },
+          {
+            "text": "i am feeling tired and unwell"
+          },
+          {
+            "text": "I don’t have the energy to do anything"
+          },
+          {
+            "text": "I feel weak and sluggish"
+          },
+          {
+            "text": "I’m exhausted, both physically and mentally"
+          },
+          {
+            "text": "I am feeling burned out"
+          },
+          {
+            "text": "🥱"
+          },
+          {
+            "text": "😩"
+          },
+          {
+            "text": "Unfit"
+          }
+        ]
+      },
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "Call agent"
+          },
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to someone"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      },
+      {
+        "intent": "action_49268_intent_43846",
+        "examples": [
+          {
+            "text": "Build muscle 💪"
+          },
+          {
+            "text": "Build muscle"
+          }
+        ]
+      },
+      {
+        "intent": "action_1289_intent_6161",
+        "examples": [
+          {
+            "text": "Good Morning"
+          },
+          {
+            "text": "Good Afternoon"
+          },
+          {
+            "text": "Good Evening"
+          },
+          {
+            "text": "Hi!"
+          },
+          {
+            "text": "HELO!!!"
+          },
+          {
+            "text": "Hello"
+          }
+        ]
+      },
+      {
+        "intent": "action_33948_intent_19072",
+        "examples": [
+          {
+            "text": "Home workouts"
+          },
+          {
+            "text": "workouts 💪"
+          },
+          {
+            "text": "Home workouts 💪"
+          }
+        ]
+      },
+      {
+        "intent": "action_15830_intent_28044",
+        "examples": [
+          {
+            "text": "THANKSSSS!!"
+          },
+          {
+            "text": "Thank you for the tips!!"
+          },
+          {
+            "text": "thankyou!!"
+          },
+          {
+            "text": "Thanks for your help, ActiZen"
+          },
+          {
+            "text": "Thanks"
+          },
+          {
+            "text": "Thank you"
+          }
+        ]
+      },
+      {
+        "intent": "action_47535_intent_45554",
+        "examples": [
+          {
+            "text": "Full-body quick session ⏱️"
+          },
+          {
+            "text": "Full-body quick session"
+          }
+        ]
+      },
+      {
+        "intent": "action_24766_intent_13689",
+        "examples": [
+          {
+            "text": "Tell me more about what you do."
+          },
+          {
+            "text": "What are your features?"
+          },
+          {
+            "text": "Impress me—what else have you got?"
+          },
+          {
+            "text": "What else do you have to offer?"
+          },
+          {
+            "text": "What are you capable of?"
+          },
+          {
+            "text": "What else can you do?"
+          },
+          {
+            "text": "So… what’s next?"
+          },
+          {
+            "text": "I want to explore more. What’s available?"
+          },
+          {
+            "text": "Anything else you can do?"
+          },
+          {
+            "text": "Walk me through your features."
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": "danger_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      },
+      {
+        "entity": "profane_words",
+        "values": [],
+        "fuzzy_match": false
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      },
+      "skill": {
+        "counts": {
+          "actions": 17,
+          "intents": 14,
+          "entities": 3,
+          "data_types": 0,
+          "collections": 0,
+          "global_variables": 1
+        }
+      }
+    },
+    "variables": [
+      {
+        "title": "name",
+        "privacy": {
+          "enabled": false
+        },
+        "variable": "name",
+        "data_type": "string",
+        "description": ""
+      }
+    ],
+    "data_types": [],
+    "collections": [],
+    "counterexamples": [],
+    "system_settings": {
+      "nlp": {
+        "model": "latest"
+      },
+      "variable": {
+        "format": {
+          "time": {
+            "pattern": "short"
+          },
+          "currency": {
+            "fraction_digits": 2
+          }
+        }
+      },
+      "off_topic": {
+        "enabled": true
+      },
+      "auto_learn": {
+        "apply": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "enable_confirmation": true,
+          "confirmation_failure": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "I'm sorry, I did not catch that, please confirm."
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              }
+            ]
+          },
+          "confirmation_request": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "Do you want to continue with the previous topic: "
+                        },
+                        {
+                          "system_variable": "digressed_from"
+                        },
+                        {
+                          "scalar": "?"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              },
+              {
+                "options": [
+                  {
+                    "label": "Yes",
+                    "value": {
+                      "input": {
+                        "text": "Yes"
+                      }
+                    }
+                  },
+                  {
+                    "label": "No",
+                    "value": {
+                      "input": {
+                        "text": "No"
+                      }
+                    }
+                  }
+                ],
+                "response_type": "option",
+                "repeat_on_reprompt": true
+              }
+            ]
+          }
+        },
+        "max_tries": 3
+      },
+      "generative_ai": {
+        "model_id": "ibm/granite-3-8b-instruct",
+        "hap_filter": {
+          "output": {
+            "enabled": true
+          }
+        }
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above",
+        "use_connect_to_support_prompt": "Connect to support",
+        "single_answer_clarification_prompt": "Something else"
+      },
+      "search_routing": {
+        "target": "conversational_search"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false,
+    "language": "en"
+  },
+  "description": "created for assistant dcbc9059-2769-45cb-9e7d-cce6bfcb0d30",
+  "dialog_settings": {
+    "source_assistant": "51494992-a310-423d-a4c4-a089cbf1738e"
+  },
+  "created": "2025-08-04T15:03:32.526Z",
+  "updated": "2025-08-04T15:03:32.526Z",
+  "snapshot": "1",
+  "assistant_id": "dcbc9059-2769-45cb-9e7d-cce6bfcb0d30",
+  "assistant_references": []
+}
