@@ -6,8 +6,9 @@
 
 "Here’s what I can help you with:
 
-Home workouts 💪
-Healthy meal ideas 🥗
-Motivation & habit tracking 🎯
-Mindfulness and recovery 🌿
+- Home workouts 💪
+- Healthy meal ideas 🥗
+- Motivation & habit tracking 🎯
+- Mindfulness and recovery 🌿
+
 Just tell me what you need!"
